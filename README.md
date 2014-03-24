@@ -15,8 +15,9 @@ API call), and sign an envelope using the Embedded Signing functionality.
 Library Configuration
 -------------------------
 
-TODO
-
+1.  Navigate to DevTraining101Node / config-blank.js.
+2.  Update values for account email, username, and Integrator Key.
+3.  Run the app.
 
 System Requirements
 -------------------------
