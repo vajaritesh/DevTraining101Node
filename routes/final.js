@@ -16,5 +16,7 @@
  */
 
 exports.index = function(req, res){
-    res.render('final', { status: 'Declined' });
+    var status = req.query.event;
+    console.log("status is: " + status);
+    res.render('final', { status: status });
 };

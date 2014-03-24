@@ -17,10 +17,10 @@
 
 var config = require('../config');
 
-exports.index = function(request, response){
+exports.index = function(httpRequest, httpResponse){
 
-    var email = request.body.email;
-    var name = request.body.name;
+    var email = httpRequest.body.email;
+    var name = httpRequest.body.name;
 
     console.log('got email:' + email);
     console.log('got name:' + name);
@@ -50,7 +50,7 @@ exports.index = function(request, response){
                 // send the request...
                 request(options, function(err, res, body) {
                     if(!parseResponseBody(err, res, body)) {
-                        response.status(res.status);
+                        httpResponse.status(res.status);
                         return;
                     }
                     baseUrl = JSON.parse(body).loginAccounts[0].baseUrl;
@@ -81,7 +81,7 @@ exports.index = function(request, response){
                 // send the request...
                 request(options, function(err, res, body) {
                     if(!parseResponseBody(err, res, body)) {
-                        response.status(res.status);
+                        httpResponse.status(res.status);
                         return;
                     }
                     // parse the envelopeId value from the response
@@ -94,10 +94,13 @@ exports.index = function(request, response){
             // Step 3 - Get the Embedded Signing View (aka the recipient view)
             //////////////////////////////////////////////////////////////////////
             function(next) {
+
+                var returnUrl = httpRequest.protocol + '://' + httpRequest.get('host') + "/final";
+
                 var url = baseUrl + "/envelopes/" + envelopeId + "/views/recipient";
                 var method = "POST";
                 var body = JSON.stringify({
-                    "returnUrl": "/final",
+                    "returnUrl": returnUrl,
                     "authenticationMethod": "email",
                     "email": email,
                     "userName": recipientName,
@@ -111,10 +114,10 @@ exports.index = function(request, response){
                 request(options, function(err, res, body) {
 
                     if(!parseResponseBody(err, res, body)) {
-                        response.status(res.status);
+                        httpResponse.status(res.status);
                         return;
                     } else {
-                        response.redirect(JSON.parse(body).url);
+                        httpResponse.redirect(JSON.parse(body).url);
                         console.log("\nNavigate to the above URL to start the Embedded Signing workflow...");
                     }
                 });
