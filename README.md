@@ -1,4 +1,4 @@
-DocuSign Dev Training 101 - Node.js
+DocuSign Dev Training 101 (Node.js)
 ================================
 
 This is a sample Node.js project to be used with developer training through the DocuSign University.  
