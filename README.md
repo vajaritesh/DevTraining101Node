@@ -1,39 +1,27 @@
-DocuSign eSign PHP Client Library
+DocuSign Dev Training 101 - Node.js
 ================================
 
-This is a client library to help you get started with DocuSign eSignature API.
-To get started with using this library go to <a href="http://www.docusign.com/devcenter">http://www.docusign.com/devcenter</a> and get
+This is a sample Node.js project to be used with developer training through the DocuSign University.  
+To get started go to <a href="http://www.docusign.com/devcenter">http://www.docusign.com/devcenter</a> and get
 a free development account.  After you get an account and generate an Integrator Key (App Key) 
 you will be able to make test web service calls.  To generate your Integrator Key login to your developer 
-account and go to Preferences -> API page.
+account at demo.docusign.net and go to Preferences -> API page.
 
-The JSON parsing is done through PHP's native `json_encode()` and `json_decode()` functions, available with 
-PHP 5.2.x and higher.  To see examples of how the library can be used for most frequently used scenarios 
-look in the test directory.  The sub folders contain unit tests, as well as /examples folders which 
-showcase the most frequent usage scenarios.
-
-NOTE: it does not and will not have the full functionality of the DocuSign service.
-Feel free to update the proxy classes yourself and contribute functions.
-Alternatively you can get the raw HTTP connection and send over your own JSON.
-For full functionality and documentation visit www.docusign.com/devcenter and iodocs.docusign.com
+This project contains a simple web app that we will use during the API training workshop.  Its purpose is to help
+you get going with the DocuSign API, understand and implement the first API calls you should be making (i.e. the Login
+API call), and sign an envelope using the Embedded Signing functionality. 
 
 
 Library Configuration
 -------------------------
 
-To use this library you need to enter your account specific info in the `config.php` configuration file.
-Test data can also be entered into the `testConfig.php` file for unit testing and examples.
-Do a search for the string "TODO" to locate places that require specific info to be entered.
+TODO
 
 
 System Requirements
 -------------------------
 
-- PHP 5.2.x or higher [http://www.php.net/]
-- PHP Curl extension [http://www.php.net/manual/en/intro.curl.php]
-- PHP JSON extension [http://php.net/manual/en/book.json.php]
-
-This client library was tested with PHP 5.3.15.
+This sample project has been tested using `Node v0.10.21`
 
 
 Important Terms
